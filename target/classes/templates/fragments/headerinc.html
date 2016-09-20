@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:fragment="head">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <link href="../static/css/flowz.css"
+          th:href="@{/css/flowz.css}" rel="stylesheet" media="screen"/>    
+          
+    <link href="../static/css/DateTimePicker.css"
+          th:href="@{/css/DateTimePicker.css}" rel="stylesheet" media="screen"/>   
+          
+    <script src="../static/js/DateTimePicker.js"
+            th:src="@{/js/DateTimePicker.js}"></script>
+
+</head>
+<body>
+<!-- <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" /> -->   
+</body>
+</html>

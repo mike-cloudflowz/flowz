@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>CloudFlowz</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">    
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <h2>My FlowzStepz List</h2>
+    <select>
+		<option th:each="flow : ${flowz}" 
+			  th:value="${flow.id}" 
+			  th:text="${flow.flowz_name}" />
+	</select>
+    <div th:if="${not #lists.isEmpty(flowzParamz)}">        
+        <table class="table table-striped">
+            <tr>
+                <th>Actionz Timestamp</th>
+                <th>Actionz Name</th>
+                <th>Subject Text</th>
+                <th>Body Text</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="flowParamz : ${flowzParamz}">
+                <td th:text="${flowParamz.stepzTmstmp}">Actionz Timestamp</td>
+                <td th:text="${flowParamz.actionz_name}">Actionz Name</td>
+                <td th:text="${flowParamz.param2}">Subject Text</td>
+                <td th:text="${flowParamz.param3}">Body Text</td>
+                <td><a th:href="${'/flowzParamz/' + flowParamz.id}">View</a></td>
+                <td><a th:href="${'/flowzParamz/edit/' + flowParamz.id}">Edit</a></td>
+                <td><a th:href="${'/flowzParamz/delete/' + flowParamz.id}">Delete</a></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>

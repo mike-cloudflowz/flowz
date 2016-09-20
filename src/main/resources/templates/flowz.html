@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>CloudFlowz</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+
+<body>
+<div class="container">    
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    
+    <div th:if="${not #lists.isEmpty(crtFlowz)}">
+        <h3>My Created Flowz List</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Flowz Id</th>
+                <th>Flowz Name</th>
+                <th>Flowz Type</th>
+                <th>Flowz Status</th>
+                <th>Description</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>Action</th>
+            </tr>
+            <tr th:each="flow : ${crtFlowz}">
+                <td th:text="${flow.id}"><a href="/flowz/${flow.id}">Flowz Id</a></td>
+                <td th:text="${flow.flowz_name}">Flowz Name</td>
+                <td th:text="${flow.flowz_type}">Flowz Type</td>
+                <td th:text="${flow.flowzStatus}">Flowz Status</td>
+                <td th:text="${flow.description}">Description</td>
+                <td><a th:href="${'/flowz/' + flow.id}">View</a></td>
+                <td><a th:href="${'/flowz/edit/' + flow.id}">Edit</a></td>
+                <td><a th:href="${'/flowz/delete/' + flow.id}">Delete</a></td>
+                <td><a th:href="${'/flowz/schedule/' + flow.id}">Schedule</a></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div th:if="${#lists.isEmpty(crtFlowz)}">
+        <h3>My Created Flowz List</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>You have no Created Flowz</th>
+            </tr>
+        </table>
+    </div>   
+        
+    <div th:if="${not #lists.isEmpty(schFlowz)}">
+        <h3>My Scheduled Flowz List</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Flowz Id</th>
+                <th>Flowz Name</th>
+                <th>Flowz Type</th>
+                <th>Flowz Status</th>
+                <th>Description</th>
+                <th>View</th>
+                <th>Delete</th>
+                <th>Action</th>
+            </tr>
+            <tr th:each="flow : ${schFlowz}">
+                <td th:text="${flow.id}"><a href="/flowz/${flow.id}">Flowz Id</a></td>
+                <td th:text="${flow.flowz_name}">Flowz Name</td>
+                <td th:text="${flow.flowz_type}">Flowz Type</td>
+                <td th:text="${flow.flowzStatus}">Flowz Status</td>
+                <td th:text="${flow.description}">Description</td>
+                <td><a th:href="${'/flowz/' + flow.id}">View</a></td>
+                <td><a th:href="${'/flowz/delete/' + flow.id}">Delete</a></td>
+                <td><a th:href="${'/flowz/unSchedule/' + flow.id}">UnSchedule</a></td>
+            </tr>
+        </table>
+    </div>
+    <div th:if="${#lists.isEmpty(schFlowz)}">
+        <h3>My Scheduled Flowz List</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>You have no Scheduled Flowz</th>
+            </tr>
+        </table>
+    </div>    
+    
+    <div th:if="${not #lists.isEmpty(exeFlowz)}">
+        <h3>My Executed Flowz List</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Flowz Id</th>
+                <th>Flowz Name</th>
+                <th>Flowz Type</th>
+                <th>Flowz Status</th>
+                <th>Description</th>
+                <th>View</th>
+            </tr>
+            <tr th:each="flow : ${exeFlowz}">
+                <td th:text="${flow.id}"><a href="/flowz/${flow.id}">Flowz Id</a></td>
+                <td th:text="${flow.flowz_name}">Flowz Name</td>
+                <td th:text="${flow.flowz_type}">Flowz Type</td>
+                <td th:text="${flow.flowzStatus}">Flowz Status</td>
+                <td th:text="${flow.description}">Description</td>
+                <td><a th:href="${'/flowz/' + flow.id}">View</a></td>
+            </tr>
+        </table>
+    </div>
+    <div th:if="${#lists.isEmpty(exeFlowz)}">
+        <h3>My Executed Flowz List</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>You have no Executed Flowz</th>
+            </tr>
+        </table>
+        </div>
+    </div>
+
+</body>
+</html>
