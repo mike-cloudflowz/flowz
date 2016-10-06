@@ -8,6 +8,7 @@ C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\repositories\FlowzParamzRepo.
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\domain\EmailUserZ.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\services\UsersService.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\repositories\FlowzSkedzRepo.java
+C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\controllers\RegisterController.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\domain\FlowzSkedz.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\domain\FlowzStepz.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\services\FlowzParamzService.java

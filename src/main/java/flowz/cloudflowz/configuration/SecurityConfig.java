@@ -90,6 +90,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         		.antMatchers("/resources/**").permitAll()
         		.antMatchers("/images/**").permitAll()
         		.antMatchers("/emailz/**").permitAll()
+        		.antMatchers("/register/**").permitAll()
                 .anyRequest().authenticated();
     		http
                 .formLogin().failureUrl("/login?error")
