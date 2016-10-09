@@ -48,6 +48,10 @@
             <groupId>org.springframework</groupId>
             <artifactId>springloaded</artifactId>
         </dependency>
+        <dependency>
+       		<groupId>org.springframework.integration</groupId>
+       		<artifactId>spring-integration-core</artifactId>
+	    </dependency>
 		<dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -69,7 +73,10 @@
 			<artifactId>jquery</artifactId>
 			<version>2.1.4</version>
 		</dependency>
-
+        <dependency>
+        	<groupId>org.springframework.data</groupId>
+       	 	<artifactId>spring-data-mongodb</artifactId>
+    	</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
