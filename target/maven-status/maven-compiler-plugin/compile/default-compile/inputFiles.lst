@@ -5,6 +5,7 @@ C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\configuration\WebConfiguratio
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\controllers\FlowzParamzController.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\controllers\FlowzController.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\repositories\FlowzParamzRepo.java
+C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\utils\FlowzReceiver.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\domain\EmailUserZ.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\services\UsersService.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\repositories\FlowzSkedzRepo.java

@@ -5,16 +5,30 @@
     <title>CloudFlowz</title>
 
     <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+    
+    <script>
+    $(function() {
+
+    	  $('.selectpicker').on('change', function(){
+    	    var selected = $(this).find("option:selected").val();
+    	    alert(selected);
+    	  });
+    	  
+    	});
+    </script>
+    
 </head>
 <body>
 <div class="container">    
     <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
     <h2>My FlowzStepz List</h2>
-    <select>
+    <label>Select a Flow:</label> 
+    <select class="selectpicker">
 		<option th:each="flow : ${flowz}" 
 			  th:value="${flow.id}" 
 			  th:text="${flow.flowz_name}" />
 	</select>
+			
     <div th:if="${not #lists.isEmpty(flowzParamz)}">        
         <table class="table table-striped">
             <tr>
