@@ -1,6 +1,9 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
   <head>
     <title>CloudFlowz</title>
+    
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    
   </head>
   <body style="background: url(images/cloudflowz.jpg)">
     <div tiles:fragment="content">
@@ -21,6 +24,7 @@
                     <button type="submit" class="btn">Log in</button>
                     <a th:href="${'/register'}">Register for Flowz</a>
                 </div>
+                <div class="g-recaptcha" data-sitekey="6LdI-AgUAAAAABEzPp2QKaagRC4HbMeEfnTcQque"></div>
             </fieldset>
         </form>
     </div>

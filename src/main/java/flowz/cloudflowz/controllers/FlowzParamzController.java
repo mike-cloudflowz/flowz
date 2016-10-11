@@ -36,7 +36,7 @@ public class FlowzParamzController {
         this.usersService = usersService;
     }
 
-    @RequestMapping(value = "/flowzParamz", method = RequestMethod.GET)
+    @RequestMapping(value = "/flowzParamz/{id}", method = RequestMethod.GET)
     public String list(Model model){
     	User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("flowzParamz", flowzParamzService.getUsersFlowzParamz(user.getUsername()));

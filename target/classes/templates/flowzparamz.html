@@ -12,10 +12,13 @@
     	  $('.selectpicker').on('change', function(){
     	    var selected = $(this).find("option:selected").val();
     	    alert(selected);
+    	    var str = location.pathname.substr(location.pathname.lastIndexOf('/') + 1) + '$';
+    	    alert(str).replace( new RegExp(str), '' );
+    	    location.href=location.protocol + '//' + location.host + location.pathname + selected; 
     	  });
     	  
     	});
-    </script>
+    </script>       
     
 </head>
 <body>
