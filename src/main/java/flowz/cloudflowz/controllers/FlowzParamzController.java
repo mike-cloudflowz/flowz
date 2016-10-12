@@ -36,7 +36,16 @@ public class FlowzParamzController {
         this.usersService = usersService;
     }
 
-    @RequestMapping(value = "/flowzParamz/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/showFlowzParamz/{flowzId}", method = RequestMethod.GET)
+    public String list(@PathVariable Integer flowzId, Model model){
+    	User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("flowzParamz", flowzParamzService.getFlowzParamzByFlowzId(flowzId));
+        model.addAttribute("flowz", flowzService.getUsersFlowz(user.getUsername()));
+        model.addAttribute("currId", flowzId);
+        return "flowzparamz";
+    }
+    
+    @RequestMapping(value = "/flowzParamz", method = RequestMethod.GET)
     public String list(Model model){
     	User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("flowzParamz", flowzParamzService.getUsersFlowzParamz(user.getUsername()));

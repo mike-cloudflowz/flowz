@@ -21,9 +21,14 @@ public class FlowzParamzServiceImpl implements FlowzParamzService {
     public Iterable<FlowzParamz> listAllFlowzParamz() {
         return flowzParamzRepo.findAll();
     }
-
+    
     @Override
     public FlowzParamz getFlowzParamzById(Integer id) {
+        return flowzParamzRepo.findOne(id);
+    }
+
+    @Override
+    public FlowzParamz getFlowzParamzByFlowzId(Integer id) {
         return flowzParamzRepo.findOne(id);
     }
 

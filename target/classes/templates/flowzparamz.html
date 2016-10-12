@@ -11,10 +11,9 @@
 
     	  $('.selectpicker').on('change', function(){
     	    var selected = $(this).find("option:selected").val();
-    	    alert(selected);
-    	    var str = location.pathname.substr(location.pathname.lastIndexOf('/') + 1) + '$';
-    	    alert(str).replace( new RegExp(str), '' );
-    	    location.href=location.protocol + '//' + location.host + location.pathname + selected; 
+    	    var str = location.pathname.substr(location.pathname.lastIndexOf('/') + 1);
+    	    var newPath = ((location.pathname).replace(new RegExp(str),''));
+    	    window.location.href = location.protocol + '//' + location.host + newPath + selected;
     	  });
     	  
     	});
@@ -24,14 +23,15 @@
 <body>
 <div class="container">    
     <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
-    <h2>My FlowzStepz List</h2>
+    <h2>My Flowz Stepz List</h2>
     <label>Select a Flow:</label> 
-    <select class="selectpicker">
+    <select id="currFlowz" name="currFlowz" class="selectpicker">
 		<option th:each="flow : ${flowz}" 
-			  th:value="${flow.id}" 
-			  th:text="${flow.flowz_name}" />
+			  th:value="${flow.id}" 			  
+			  th:text="${flow.flowz_name}"
+			  th:selected="${flow.id == currId}"/>
 	</select>
-			
+		
     <div th:if="${not #lists.isEmpty(flowzParamz)}">        
         <table class="table table-striped">
             <tr>
@@ -53,8 +53,18 @@
                 <td><a th:href="${'/flowzParamz/delete/' + flowParamz.id}">Delete</a></td>
             </tr>
         </table>
-
     </div>
+    
+    <div th:if="${#lists.isEmpty(flowzParamz)}">
+        <h3>My FlowzStepz List</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>You have no Flowz Stepz</th>
+            </tr>
+        </table>
+    </div>    
+    
+    
 </div>
 
 </body>

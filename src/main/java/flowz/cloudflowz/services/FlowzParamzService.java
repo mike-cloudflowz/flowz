@@ -8,6 +8,8 @@ public interface FlowzParamzService {
     Iterable<FlowzParamz> listAllFlowzParamz();
 
     FlowzParamz getFlowzParamzById(Integer id);
+    
+    FlowzParamz getFlowzParamzByFlowzId(Integer id);
 
     FlowzParamz saveFlowzParamz(FlowzParamz flowzParamz);
 
