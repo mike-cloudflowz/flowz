@@ -14,6 +14,7 @@ public class Flowz {
     @Column(name="flowz_status")
     private String flowzStatus;
     
+    private String flowz_recurz_type;
     private String description;
     
 	public Integer getId() {
@@ -54,6 +55,14 @@ public class Flowz {
 
 	public void setFlowzStatus(String flowzStatus) {
 		this.flowzStatus = flowzStatus;
+	}
+	
+	public String getFlowz_recurz_type() {
+		return flowz_recurz_type;
+	}
+
+	public void setFlowz_recurz_type(String flowz_recurz_type) {
+		this.flowz_recurz_type = flowz_recurz_type;
 	}
 
 	public String getDescription() {

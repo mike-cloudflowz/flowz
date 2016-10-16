@@ -2,16 +2,16 @@ package flowz.cloudflowz.domain;
 
 public class EmailUserZ {
 
-	private String toAddr;
+	private String toEndPoint;
 	private String toSubj;
 	private String toBody;
 	
-	public String getToAddr() {
-		return toAddr;
+	public String getToEndPoint() {
+		return toEndPoint;
 	}
 	
-	public void setToAddr(String toAddr) {
-		this.toAddr = toAddr;
+	public void setToAddr(String toEndPoint) {
+		this.toEndPoint = toEndPoint;
 	}
 	
 	public String getToSubj() {

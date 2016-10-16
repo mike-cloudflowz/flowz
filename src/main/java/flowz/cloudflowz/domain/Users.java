@@ -15,6 +15,7 @@ public class Users {
     private Byte enabled;
     private String email_address;
     private String cell_phone;
+    private String userz_locationz;
     
 	public Integer getId() {
 		return id;
@@ -62,6 +63,14 @@ public class Users {
 	public void setCell_phone(String cell_phone) {
 		this.cell_phone = cell_phone;
 	}		
+	
+	public String getUserz_locationz() {
+		return userz_locationz;
+	}
+
+	public void setUserz_locationz(String userz_locationz) {
+		this.userz_locationz = userz_locationz;
+	}
 	
 	public void User() {
     }

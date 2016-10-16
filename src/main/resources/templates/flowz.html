@@ -19,6 +19,7 @@
                 <th>Flowz Name</th>
                 <th>Flowz Type</th>
                 <th>Flowz Status</th>
+                <th>Recurring Flowz</th>
                 <th>Description</th>
                 <th>View</th>
                 <th>Edit</th>
@@ -30,6 +31,7 @@
                 <td th:text="${flow.flowz_name}">Flowz Name</td>
                 <td th:text="${flow.flowz_type}">Flowz Type</td>
                 <td th:text="${flow.flowzStatus}">Flowz Status</td>
+                <td th:text="${flow.flowz_recurz_type}">Recurring Flowz</td>                
                 <td th:text="${flow.description}">Description</td>
                 <td><a th:href="${'/flowz/' + flow.id}">View</a></td>
                 <td><a th:href="${'/flowz/edit/' + flow.id}">Edit</a></td>
@@ -56,6 +58,7 @@
                 <th>Flowz Name</th>
                 <th>Flowz Type</th>
                 <th>Flowz Status</th>
+                <th>Recurring Flowz</th>
                 <th>Description</th>
                 <th>View</th>
                 <th>Delete</th>
@@ -66,6 +69,7 @@
                 <td th:text="${flow.flowz_name}">Flowz Name</td>
                 <td th:text="${flow.flowz_type}">Flowz Type</td>
                 <td th:text="${flow.flowzStatus}">Flowz Status</td>
+                <td th:text="${flow.flowz_recurz_type}">Recurring Flowz</td>     
                 <td th:text="${flow.description}">Description</td>
                 <td><a th:href="${'/flowz/' + flow.id}">View</a></td>
                 <td><a th:href="${'/flowz/delete/' + flow.id}">Delete</a></td>

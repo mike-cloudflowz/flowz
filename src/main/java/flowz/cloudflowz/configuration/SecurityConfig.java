@@ -64,14 +64,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
             auth.userDetailsService(userDetailsService).passwordEncoder(encoder);
             auth.jdbcAuthentication().dataSource(datasource);
-
-            if(!userDetailsService.userExists("user")) {
-                List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-                authorities.add(new SimpleGrantedAuthority("USER"));
-                User userDetails = new User("user", encoder.encode("password"), authorities);
-
-                userDetailsService.createUser(userDetails);
-            }
+            
         }  
         
         /*private CsrfTokenRepository csrfTokenRepository() 

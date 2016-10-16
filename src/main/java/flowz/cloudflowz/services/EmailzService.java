@@ -22,7 +22,7 @@ public class EmailzService {
   public void sendEmail(EmailUserZ emailUserZ) {
     // send email  
     SimpleMailMessage mail = new SimpleMailMessage();
-    mail.setTo(emailUserZ.getToAddr());
+    mail.setTo(emailUserZ.getToEndPoint());
     mail.setSubject(emailUserZ.getToSubj());
     mail.setText(emailUserZ.getToBody());
     mail.setFrom("emailz@cloudflowz.com");
