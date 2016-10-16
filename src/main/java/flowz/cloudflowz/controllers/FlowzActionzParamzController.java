@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import flowz.cloudflowz.domain.Flowz;
 import flowz.cloudflowz.domain.FlowzActionzParamz;
 import flowz.cloudflowz.services.FlowzActionzParamzService;
 import flowz.cloudflowz.services.FlowzService;
@@ -57,8 +58,9 @@ public class FlowzActionzParamzController {
     @RequestMapping(value = "/flowzActionzParamz", method = RequestMethod.GET)
     public String list(Model model){
     	User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("flowzActionzParamz", flowzActionzParamzService.getUsersFlowzActionzParamz(user.getUsername()));
-        model.addAttribute("flowz", flowzService.getExistingFlowz());       
+        model.addAttribute("flowz", flowzService.getExistingFlowz());    
+        Flowz firstFlowz = flowzService.findFirstById();
+        model.addAttribute("flowzActionzParamz", flowzActionzParamzService.getFlowzActionzParamzByFlowzId(firstFlowz.getId()));
         model.addAttribute("userzEndpointz", userzEndpointzService.findByUsername(user.getUsername()));
         return "flowzactionzparamz";
     }
@@ -67,18 +69,19 @@ public class FlowzActionzParamzController {
     public String showFlowzParamz(@PathVariable Integer id, Model model){
     	FlowzActionzParamz flowzActionzParamz = flowzActionzParamzService.getFlowzActionzParamzById(id);
         model.addAttribute("flowzActionzParamz", flowzActionzParamz);
-        model.addAttribute("userEndpointz", userzEndpointzService.findById(flowzActionzParamz.getUserz_endpointz_id()));
+        model.addAttribute("userEndpointz", userzEndpointzService.findById(flowzActionzParamz.getUserz_endpointz_id()));        
         return "flowzactionzparamzshow";
     }
 
     @RequestMapping("flowzActionzParamz/edit/{id}")
     public String edit(@PathVariable Integer id, Model model){
     	FlowzActionzParamz flowzActionzParamz = flowzActionzParamzService.getFlowzActionzParamzById(id);
-        model.addAttribute("flowzActionzParamz", flowzActionzParamzService.getFlowzActionzParamzById(id));
+        model.addAttribute("flowzActionzParamz", flowzActionzParamz);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("flowz", flowzService.getUsersFlowz(user.getUsername()));
         model.addAttribute("user", usersService.findByUsername(user.getUsername()));
-        model.addAttribute("userEndpointz", userzEndpointzService.findById(flowzActionzParamz.getUserz_endpointz_id()));
+        model.addAttribute("userzEndpointz", userzEndpointzService.findByUsername(user.getUsername()));
+        model.addAttribute("currId", id);
         return "flowzactionzparamzform";
     }
 

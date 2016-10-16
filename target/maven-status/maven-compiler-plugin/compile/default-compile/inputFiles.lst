@@ -15,11 +15,15 @@ C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\controllers\IndexController.j
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\services\FlowzActionzParamzService.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\controllers\EmailzController.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\services\FlowzActionzParamzServiceImpl.java
+C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\repositories\ActionzRepo.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\repositories\UsersRepo.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\services\FlowzServiceImpl.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\services\UsersServiceImpl.java
+C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\services\ActionzService.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\services\FlowzStepzService.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\services\EmailzService.java
+C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\domain\Actionz.java
+C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\services\ActionzServiceImpl.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\repositories\FlowzActionzParamzRepo.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\services\FlowzStepzServiceImpl.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\repositories\FlowzRepo.java

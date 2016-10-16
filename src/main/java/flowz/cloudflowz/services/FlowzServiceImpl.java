@@ -10,12 +10,16 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
+import flowz.cloudflowz.domain.Actionz;
 import flowz.cloudflowz.domain.Flowz;
 import flowz.cloudflowz.domain.FlowzActionzParamz;
 import flowz.cloudflowz.domain.FlowzStepz;
+import flowz.cloudflowz.domain.UserzEndpointz;
 import flowz.cloudflowz.repositories.FlowzActionzParamzRepo;
 import flowz.cloudflowz.repositories.FlowzRepo;
 import flowz.cloudflowz.repositories.FlowzStepzRepo;
+import flowz.cloudflowz.repositories.UserzEndpointzRepo;
+import flowz.cloudflowz.repositories.ActionzRepo;
 
 @Service
 public class FlowzServiceImpl implements FlowzService {
@@ -23,6 +27,8 @@ public class FlowzServiceImpl implements FlowzService {
     private FlowzRepo flowzRepo;
     private FlowzActionzParamzRepo flowzActionzParamzRepo;
     private FlowzStepzRepo flowzStepzRepo;
+    private ActionzRepo actionzRepo;
+    private UserzEndpointzRepo userzEndpointzRepo;
 
     @Autowired
     public void setFlowzRepo(FlowzRepo flowzRepo) {
@@ -37,6 +43,16 @@ public class FlowzServiceImpl implements FlowzService {
     @Autowired
     public void setFlowzStepzRepo(FlowzStepzRepo flowzStepzRepo) {
         this.flowzStepzRepo = flowzStepzRepo;
+    }
+    
+    @Autowired
+    public void setActionzRepo(ActionzRepo actionzRepo) {
+        this.actionzRepo = actionzRepo;
+    }
+    
+    @Autowired
+    public void setUserzEndpointzRepo(UserzEndpointzRepo userzEndpointzRepo) {
+        this.userzEndpointzRepo = userzEndpointzRepo;
     }
         
     @Override
@@ -78,7 +94,13 @@ public class FlowzServiceImpl implements FlowzService {
     		flowzStepz.setActionz_name(paramzList.getActionz_name());
     		flowzStepz.setStepz_tmstmp(paramzList.getStepzTmstmp());
     		flowzStepz.setUser_endpointz_id(paramzList.getUserz_endpointz_id());
-    		flowzStepz.setStepz_payload("{\"toEndPoint\":\"mike@cloudflowz.com\",\"toSubj\":\"SI\",\"toBody\":\"MW\"}");
+    		UserzEndpointz userEndpointz = userzEndpointzRepo.findById(paramzList.getUserz_endpointz_id());
+    		Actionz actionz = actionzRepo.findByActionzName(paramzList.getActionz_name());
+    		String payload = actionz.getActionz_payload();
+    		payload = payload.replaceAll("<endpoint>", userEndpointz.getEndpointz_value());
+    		payload = payload.replaceAll("<param1>", paramzList.getParam1());
+    		payload = payload.replaceAll("<param2>", paramzList.getParam2());
+    		flowzStepz.setStepz_payload(payload);
     		
     		if (i++ == flowzActionzParamz.size()) {
     			flowzStepz.setLast_stepz("Y");	  
@@ -138,6 +160,11 @@ public class FlowzServiceImpl implements FlowzService {
     @Override
     public List<Flowz> getUsersFlowz(String username) {
         return flowzRepo.findByUsername(username);
+    }
+    
+    @Override
+    public Flowz findFirstById() {
+    	return flowzRepo.findFirstById();
     }
     
 }

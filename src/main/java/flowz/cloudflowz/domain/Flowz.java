@@ -15,6 +15,7 @@ public class Flowz {
     private String flowzStatus;
     
     private String flowz_recurz_type;
+    private String trackz_flowz;
     private String description;
     
 	public Integer getId() {
@@ -63,6 +64,14 @@ public class Flowz {
 
 	public void setFlowz_recurz_type(String flowz_recurz_type) {
 		this.flowz_recurz_type = flowz_recurz_type;
+	}
+	
+	public String getTrackz_flowz() {
+		return trackz_flowz;
+	}
+
+	public void setTrackz_flowz(String trackz_flowz) {
+		this.trackz_flowz = trackz_flowz;
 	}
 
 	public String getDescription() {

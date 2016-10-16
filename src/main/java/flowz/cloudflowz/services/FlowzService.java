@@ -26,5 +26,7 @@ public interface FlowzService {
 	List<Flowz> getExistingFlowz();
 	
 	List<Flowz> getUsersFlowz(String username);
-    
+	
+	Flowz findFirstById();
+	
 }

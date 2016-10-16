@@ -84,6 +84,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         		.antMatchers("/images/**").permitAll()
         		.antMatchers("/emailz/**").permitAll()
         		.antMatchers("/register/**").permitAll()
+        		.antMatchers("/voices/**").permitAll()
                 .anyRequest().authenticated();
     		http
                 .formLogin().failureUrl("/login?error")
