@@ -73,8 +73,8 @@ public class FlowzStepz {
 		return stepz_tmstmp;
 	}
 	
-	public void setStepz_tmstmp(String stepz_tmstmp) {
-		this.stepz_tmstmp = stepz_tmstmp;
+	public void setStepz_tmstmp(String stepz) {
+		this.stepz_tmstmp = stepz;
 	}
 	
 	public Timestamp getActionz_tmstmp() {

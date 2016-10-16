@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import flowz.cloudflowz.domain.FlowzParamz;
-import flowz.cloudflowz.services.FlowzParamzService;
+import flowz.cloudflowz.domain.FlowzActionzParamz;
+import flowz.cloudflowz.services.FlowzActionzParamzService;
 import flowz.cloudflowz.services.FlowzService;
 
 @Controller
-public class FlowzParamzController {
+public class FlowzActionzParamzController {
 
-	private FlowzService flowzService; 
-    private FlowzParamzService flowzParamzService;
+	private FlowzActionzService flowzActionzService; 
+    private FlowzActionzParamzService flowzActionzParamzService;
 
     @Autowired
     public void setFlowzService(FlowzService flowzService) {
@@ -23,47 +23,46 @@ public class FlowzParamzController {
     }
     
     @Autowired
-    public void setFlowzParamzService(FlowzParamzService flowzParamzService) {
-        this.flowzParamzService = flowzParamzService;
+    public void setFlowzActionzParamzService(FlowzActionzParamzService flowzActionzParamzService) {
+        this.flowzActionzParamzService = flowzActionzParamzService;
     }
 
-    @RequestMapping(value = "/flowzParamz", method = RequestMethod.GET)
+    @RequestMapping(value = "/flowzActionzParamz", method = RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("flowzParamz", flowzParamzService.getAllFlowzParamz());
-        return "flowzparamz";
+        model.addAttribute("flowzActionzParamz", flowzActionzParamzService.getAllFlowzActionzParamz());
+        return "flowzactionzparamz";
     }
 
     @RequestMapping("flowzParamz/{id}")
     public String showFlowzParamz(@PathVariable Integer id, Model model){
         model.addAttribute("flowzParamz", flowzParamzService.getFlowzParamzById(id));
-        return "flowzparamzshow";
+        return "flowzactionzparamzshow";
     }
 
     @RequestMapping("flowzParamz/edit/{id}")
     public String edit(@PathVariable Integer id, Model model){
         model.addAttribute("flowzParamz", flowzParamzService.getFlowzParamzById(id));
         model.addAttribute("flowz", flowzService.listAllFlowz());
-        return "flowzparamzform";
+        return "flowzactionzparamzform";
     }
 
-    @RequestMapping("flowzParamz/new")
-    public String newFlowzParamz(Model model){
-        model.addAttribute("flowzParamz", new FlowzParamz());
+    @RequestMapping("flowzActionzParamz/new")
+    public String newFlowzActionzParamz(Model model){
+        model.addAttribute("flowzActionzParamz", new FlowzActionzParamz());
         model.addAttribute("flowz", flowzService.listAllFlowz());
-        model.addAttribute("user", "mike@cloudflowz.com");
-        return "flowzparamzform";
+        return "flowzactionzparamzform";
     }
 
-    @RequestMapping(value = "flowzParamz", method = RequestMethod.POST)
-    public String saveFlowzParamz(FlowzParamz flowzParamz){
-        flowzParamzService.saveFlowzParamz(flowzParamz);
-        return "redirect:/flowzParamz/" + flowzParamz.getId();
+    @RequestMapping(value = "flowzActionzParamz", method = RequestMethod.POST)
+    public String saveFlowzActionzParamz(FlowzActionzParamz flowzActionzParamz){
+        flowzActionzParamzService.saveFlowzActionzParamz(flowzActionzParamz);
+        return "redirect:/flowzActionzParamz/" + flowzActionzParamz.getId();
     }
 
-    @RequestMapping("flowzParamz/delete/{id}")
+    @RequestMapping("flowzActionzParamz/delete/{id}")
     public String delete(@PathVariable Integer id){
-        flowzParamzService.deleteFlowzParamz(id);
-        return "redirect:/flowzParamz";
+        flowzActionzParamzService.deleteFlowzActionzParamz(id);
+        return "redirect:/flowzActionzParamz";
     }
 
 }

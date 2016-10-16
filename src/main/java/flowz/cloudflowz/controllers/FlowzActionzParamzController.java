@@ -93,7 +93,7 @@ public class FlowzActionzParamzController {
     }
 
     @RequestMapping(value = "flowzActionzParamz", method = RequestMethod.POST)
-    public String saveFlowzParamz(FlowzActionzParamz flowzActionzParamz){
+    public String saveFlowzActionzParamz(FlowzActionzParamz flowzActionzParamz){
         flowzActionzParamzService.saveFlowzActionzParamz(flowzActionzParamz);
         return "redirect:/flowzActionzParamz/" + flowzActionzParamz.getId();
     }

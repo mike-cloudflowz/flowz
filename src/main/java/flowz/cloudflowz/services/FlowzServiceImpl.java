@@ -1,6 +1,5 @@
 package flowz.cloudflowz.services;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,7 +78,7 @@ public class FlowzServiceImpl implements FlowzService {
     		flowzStepz.setActionz_name(paramzList.getActionz_name());
     		flowzStepz.setStepz_tmstmp(paramzList.getStepzTmstmp());
     		flowzStepz.setUser_endpointz_id(paramzList.getUserz_endpointz_id());
-    		flowzStepz.setStepz_payload("Test");
+    		flowzStepz.setStepz_payload("{\"toEndPoint\":\"mike@cloudflowz.com\",\"toSubj\":\"SI\",\"toBody\":\"MW\"}");
     		
     		if (i++ == flowzActionzParamz.size()) {
     			flowzStepz.setLast_stepz("Y");	  
