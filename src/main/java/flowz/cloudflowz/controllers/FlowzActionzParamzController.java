@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import flowz.cloudflowz.domain.Flowz;
 import flowz.cloudflowz.domain.FlowzActionzParamz;
 import flowz.cloudflowz.services.FlowzActionzParamzService;
 import flowz.cloudflowz.services.FlowzService;
@@ -58,9 +57,8 @@ public class FlowzActionzParamzController {
     @RequestMapping(value = "/flowzActionzParamz", method = RequestMethod.GET)
     public String list(Model model){
     	User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("flowz", flowzService.getExistingFlowz());    
-        Flowz firstFlowz = flowzService.findFirstById();
-        model.addAttribute("flowzActionzParamz", flowzActionzParamzService.getFlowzActionzParamzByFlowzId(firstFlowz.getId()));
+        model.addAttribute("flowzActionzParamz", flowzActionzParamzService.getUsersFlowzActionzParamz(user.getUsername()));
+        model.addAttribute("flowz", flowzService.getExistingFlowz());       
         model.addAttribute("userzEndpointz", userzEndpointzService.findByUsername(user.getUsername()));
         return "flowzactionzparamz";
     }

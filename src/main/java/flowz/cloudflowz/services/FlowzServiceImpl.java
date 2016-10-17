@@ -161,10 +161,5 @@ public class FlowzServiceImpl implements FlowzService {
     public List<Flowz> getUsersFlowz(String username) {
         return flowzRepo.findByUsername(username);
     }
-    
-    @Override
-    public Flowz findFirstById() {
-    	return flowzRepo.findFirstById();
-    }
-    
+        
 }

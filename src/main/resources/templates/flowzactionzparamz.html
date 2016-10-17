@@ -11,10 +11,11 @@
 
     	 $('.selectpicker').on('change', function(){
      	    var selected = $(this).find("option:selected").val();
-     	    var str = location.pathname.substr(location.pathname.lastIndexOf('/') + 1);
-     	    var newPath = ((location.pathname).replace(new RegExp(str),''));
+     	    //var str = location.pathname.substr(location.pathname.lastIndexOf('/') + 1);
+     	    //var newPath = ((location.pathname).replace(new RegExp(str),''));
      	    //alert(location.protocol + '//' + location.host + '/' + str + newPath + selected);
-      	    window.location.href = location.protocol + '//' + location.host + '/' + str + newPath + selected;
+     	    //alert(location.protocol + '//' + location.host + location.pathname);
+      	    window.location.href = location.protocol + '//' + location.host + location.pathname;
      	  });
     	  
     	});
