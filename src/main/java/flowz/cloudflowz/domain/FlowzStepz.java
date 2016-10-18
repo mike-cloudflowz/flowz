@@ -18,7 +18,7 @@ public class FlowzStepz {
     private Integer user_endpointz_id;
     private String stepz_payload;
     private String stepz_tmstmp;
-	private Timestamp actionz_tmstmp;
+	private Timestamp executed_tmstmp;
 	private String last_stepz;
 	
 	public Integer getId() {
@@ -77,12 +77,12 @@ public class FlowzStepz {
 		this.stepz_tmstmp = stepz;
 	}
 	
-	public Timestamp getActionz_tmstmp() {
-		return actionz_tmstmp;
+	public Timestamp getExecuted_tmstmp() {
+		return executed_tmstmp;
 	}
 	
-	public void setActionz_tmstmp(Timestamp actionz_tmstmp) {
-		this.actionz_tmstmp = actionz_tmstmp;
+	public void setExecuted_tmstmp(Timestamp executed_tmstmp) {
+		this.executed_tmstmp = executed_tmstmp;
 	}
 	
 	public String getLast_stepz() {

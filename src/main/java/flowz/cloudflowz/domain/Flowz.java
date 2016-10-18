@@ -1,5 +1,7 @@
 package flowz.cloudflowz.domain;
 
+import java.sql.Timestamp;
+
 import javax.persistence.*;
 
 @Entity
@@ -77,8 +79,9 @@ public class Flowz {
 	public String getDescription() {
 		return description;
 	}
+	
 	public void setDescription(String description) {
 		this.description = description;
-	}  
-   
+	}
+   		
 }

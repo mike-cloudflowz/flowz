@@ -47,7 +47,7 @@
                 <th>Delete</th>
             </tr>
             <tr th:each="flowActionzParamz : ${flowzActionzParamz}">
-                <td th:text="${flowActionzParamz.stepzTmstmp}">Actionz Timestamp</td>
+                <td th:text="${flowActionzParamz.initialTmstmp}">Actionz Timestamp</td>
                 <td th:text="${flowActionzParamz.actionz_name}">Actionz Name</td>
                 <td th:text="${flowActionzParamz.userz_endpointz_id}">Actionz Destination</td>
                 <td th:text="${flowActionzParamz.param1}">Subject Text</td>

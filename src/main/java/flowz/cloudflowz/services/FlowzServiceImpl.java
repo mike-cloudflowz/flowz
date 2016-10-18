@@ -91,8 +91,9 @@ public class FlowzServiceImpl implements FlowzService {
     		FlowzStepz flowzStepz = new FlowzStepz();
     		flowzStepz.setUsername(flowz.getUsername());
     		flowzStepz.setFlowzId(flowz.getId());
-    		flowzStepz.setActionz_name(paramzList.getActionz_name());
-    		flowzStepz.setStepz_tmstmp(paramzList.getStepzTmstmp());
+    		flowzStepz.setActionz_name(paramzList.getActionz_name());       		
+    		String getDate = paramzList.getInitialTmstmp();
+    		flowzStepz.setStepz_tmstmp(getDate.substring(3,5) + getDate.substring(0,2) + getDate.substring(8,10) + getDate.substring(11,13) + getDate.substring(14,16));
     		flowzStepz.setUser_endpointz_id(paramzList.getUserz_endpointz_id());
     		UserzEndpointz userEndpointz = userzEndpointzRepo.findById(paramzList.getUserz_endpointz_id());
     		Actionz actionz = actionzRepo.findByActionzName(paramzList.getActionz_name());
