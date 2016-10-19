@@ -28,8 +28,8 @@ public class FlowzActionzParamzServiceImpl implements FlowzActionzParamzService 
     }
 
     @Override
-    public FlowzActionzParamz getFlowzActionzParamzByFlowzId(Integer id) {
-        return flowzActionzParamzRepo.findOne(id);
+    public List<FlowzActionzParamz> getFlowzActionzParamzByFlowzId(Integer flowzId) {
+        return flowzActionzParamzRepo.findAllByFlowzId(flowzId);
     }
 
     @Override

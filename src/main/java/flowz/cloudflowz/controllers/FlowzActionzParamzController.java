@@ -1,7 +1,5 @@
 package flowz.cloudflowz.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
@@ -10,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import flowz.cloudflowz.domain.FlowzActionzParamz;
 import flowz.cloudflowz.services.FlowzActionzParamzService;
@@ -55,11 +54,12 @@ public class FlowzActionzParamzController {
     }*/
     
     @RequestMapping(value = "/flowzActionzParamz", method = RequestMethod.GET)
-    public String list(Model model){
+    public String list(@RequestParam(value = "flowzId", required=false) Integer flowzId, Model model){
     	User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("flowzActionzParamz", flowzActionzParamzService.getUsersFlowzActionzParamz(user.getUsername()));
+    	model.addAttribute("flowzActionzParamz", flowzActionzParamzService.getFlowzActionzParamzByFlowzId(flowzId));
         model.addAttribute("flowz", flowzService.getExistingFlowz());       
         model.addAttribute("userzEndpointz", userzEndpointzService.findByUsername(user.getUsername()));
+        model.addAttribute("currId", flowzId);
         return "flowzactionzparamz";
     }
 

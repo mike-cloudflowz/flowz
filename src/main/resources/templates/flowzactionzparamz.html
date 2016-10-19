@@ -13,9 +13,7 @@
      	    var selected = $(this).find("option:selected").val();
      	    //var str = location.pathname.substr(location.pathname.lastIndexOf('/') + 1);
      	    //var newPath = ((location.pathname).replace(new RegExp(str),''));
-     	    //alert(location.protocol + '//' + location.host + '/' + str + newPath + selected);
-     	    //alert(location.protocol + '//' + location.host + location.pathname);
-      	    window.location.href = location.protocol + '//' + location.host + location.pathname;
+      	    window.location.href = location.protocol + '//' + location.host + location.pathname + '?flowzId=' + selected;
      	  });
     	  
     	});
@@ -28,6 +26,7 @@
     <h2>My Flowz Stepz List</h2>
     <label>Select a Flow:</label> 
     <select id="currFlowz" name="currFlowz" class="selectpicker">
+        <option value="">Select a Flow</option>
 		<option th:each="flow : ${flowz}" 
 			  	th:value="${flow.id}" 			  
 			  	th:text="${flow.flowz_name}"

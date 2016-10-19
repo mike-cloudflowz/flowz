@@ -9,7 +9,7 @@ public interface FlowzActionzParamzService {
 
     FlowzActionzParamz getFlowzActionzParamzById(Integer id);
     
-    FlowzActionzParamz getFlowzActionzParamzByFlowzId(Integer id);
+    List<FlowzActionzParamz> getFlowzActionzParamzByFlowzId(Integer id);
 
     FlowzActionzParamz saveFlowzActionzParamz(FlowzActionzParamz flowzActionzParamz);
 

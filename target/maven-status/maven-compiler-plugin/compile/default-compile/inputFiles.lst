@@ -31,5 +31,6 @@ C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\SpringBootWebApplication.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\domain\UserzEndpointz.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\domain\Users.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\services\UserzEndpointzService.java
+C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\controllers\FlowzErrorController.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\configuration\SecurityConfig.java
 C:\cloudflowz\flowz\src\main\java\flowz\cloudflowz\services\UserzEndpointzServiceImpl.java

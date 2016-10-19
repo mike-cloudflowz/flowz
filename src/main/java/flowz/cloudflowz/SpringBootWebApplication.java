@@ -2,9 +2,6 @@ package flowz.cloudflowz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-
-import flowz.cloudflowz.utils.FlowzReceiver;
 
 /*import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
