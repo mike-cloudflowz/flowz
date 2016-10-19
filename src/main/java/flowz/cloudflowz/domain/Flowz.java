@@ -1,7 +1,5 @@
 package flowz.cloudflowz.domain;
 
-import java.sql.Timestamp;
-
 import javax.persistence.*;
 
 @Entity
@@ -10,6 +8,8 @@ public class Flowz {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String username;
+    
+    @Column(nullable = false)
     private String flowz_name;
     private String flowz_type;
     

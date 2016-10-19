@@ -1,7 +1,5 @@
 package flowz.cloudflowz.domain;
 
-import java.sql.Timestamp;
-
 import javax.persistence.*;
 
 @Entity
@@ -14,15 +12,18 @@ public class FlowzActionzParamz {
     @Column(name="flowz_id")
 	private Integer flowzId;	 
     
-    private String actionz_name;   
-    
-    @Column(name="initial_tmstmp")
+    @Column(nullable = false)
+    private String actionz_name;       
+  
+    @Column(name="initial_tmstmp", nullable = false)
     private String initialTmstmp;
     
     @Column(name="stepz_tmstmp")
 	private String stepzTmstmp;	   
     
     private Integer userz_endpointz_id;
+    
+    @Column(nullable = false)
 	private String param1;	
 	private String param2;
 		

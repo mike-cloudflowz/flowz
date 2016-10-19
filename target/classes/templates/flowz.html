@@ -15,7 +15,6 @@
         <h3>My Created Flowz List</h3>
         <table class="table table-striped">
             <tr>
-                <th>Flowz Id</th>
                 <th>Flowz Name</th>
                 <th>Flowz Type</th>
                 <th>Flowz Status</th>
@@ -28,7 +27,6 @@
                 <th>Action</th>
             </tr>
             <tr th:each="flow : ${crtFlowz}">
-                <td th:text="${flow.id}"><a href="/flowz/${flow.id}">Flowz Id</a></td>
                 <td th:text="${flow.flowz_name}">Flowz Name</td>
                 <td th:text="${flow.flowz_type}">Flowz Type</td>
                 <td th:text="${flow.flowzStatus}">Flowz Status</td>
@@ -56,7 +54,6 @@
         <h3>My Scheduled Flowz List</h3>
         <table class="table table-striped">
             <tr>
-                <th>Flowz Id</th>
                 <th>Flowz Name</th>
                 <th>Flowz Type</th>
                 <th>Flowz Status</th>
@@ -68,7 +65,6 @@
                 <th>Action</th>
             </tr>
             <tr th:each="flow : ${schFlowz}">
-                <td th:text="${flow.id}"><a href="/flowz/${flow.id}">Flowz Id</a></td>
                 <td th:text="${flow.flowz_name}">Flowz Name</td>
                 <td th:text="${flow.flowz_type}">Flowz Type</td>
                 <td th:text="${flow.flowzStatus}">Flowz Status</td>
@@ -94,7 +90,6 @@
         <h3>My Executed Flowz List</h3>
         <table class="table table-striped">
             <tr>
-                <th>Flowz Id</th>
                 <th>Flowz Name</th>
                 <th>Flowz Type</th>
                 <th>Flowz Status</th>
@@ -102,8 +97,7 @@
                 <th>View</th>
             </tr>
             <tr th:each="flow : ${exeFlowz}">
-                <td th:text="${flow.id}"><a href="/flowz/${flow.id}">Flowz Id</a></td>
-                <td th:text="${flow.flowz_name}">Flowz Name</td>
+                  <td th:text="${flow.flowz_name}">Flowz Name</td>
                 <td th:text="${flow.flowz_type}">Flowz Type</td>
                 <td th:text="${flow.flowzStatus}">Flowz Status</td>
                 <td th:text="${flow.description}">Description</td>
