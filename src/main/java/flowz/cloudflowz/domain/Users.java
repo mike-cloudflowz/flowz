@@ -1,5 +1,7 @@
 package flowz.cloudflowz.domain;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +18,7 @@ public class Users {
     private String email_address;
     private String cell_phone;
     private String userz_locationz;
+    private Timestamp last_login;
     
 	public Integer getId() {
 		return id;
@@ -70,8 +73,16 @@ public class Users {
 
 	public void setUserz_locationz(String userz_locationz) {
 		this.userz_locationz = userz_locationz;
+	}	
+		
+	public Timestamp getLast_login() {
+		return last_login;
 	}
-	
+
+	public void setLast_login(Timestamp last_login) {
+		this.last_login = last_login;
+	}
+
 	public void User() {
     }
 	

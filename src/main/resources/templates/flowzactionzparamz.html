@@ -26,7 +26,7 @@
     <h2>My Flowz Stepz List</h2>
     <label>Select a Flow:</label> 
     <select id="currFlowz" name="currFlowz" class="selectpicker">
-        <option value="">Select a Flow</option>
+        <option class="form-control" value="">Select a Flow</option>
 		<option th:each="flow : ${flowz}" 
 			  	th:value="${flow.id}" 			  
 			  	th:text="${flow.flowz_name}"

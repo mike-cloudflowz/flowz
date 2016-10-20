@@ -1,5 +1,7 @@
 package flowz.cloudflowz.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
@@ -9,8 +11,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import flowz.cloudflowz.domain.FlowzActionzParamz;
+import flowz.cloudflowz.domain.UserzEndpointz;
 import flowz.cloudflowz.services.FlowzActionzParamzService;
 import flowz.cloudflowz.services.FlowzService;
 import flowz.cloudflowz.services.UsersService;
@@ -43,16 +47,7 @@ public class FlowzActionzParamzController {
     public void setFlowzActionzParamzService(UsersService usersService) {
         this.usersService = usersService;
     }
-
-    /*@RequestMapping(value = "/showFlowzActionzParamz/{flowzId}", method = RequestMethod.GET)
-    public String list(@PathVariable Integer flowzId, Model model){
-    	User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("flowzActionzParamz", flowzActionzParamzService.getFlowzActionzParamzByFlowzId(flowzId));
-        model.addAttribute("flowz", flowzService.getUsersFlowz(user.getUsername()));
-        model.addAttribute("currId", flowzId);
-        return "flowzactionzparamz";
-    }*/
-    
+   
     @RequestMapping(value = "/flowzActionzParamz", method = RequestMethod.GET)
     public String list(@RequestParam(value = "flowzId", required=false) Integer flowzId, Model model){
     	User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -103,6 +98,14 @@ public class FlowzActionzParamzController {
     public String delete(@PathVariable Integer id){
         flowzActionzParamzService.deleteFlowzActionzParamz(id);
         return "redirect:/flowzActionzParamz";
+    }
+    
+    @RequestMapping(value = "/getEndpointz")
+    @ResponseBody
+    public List<UserzEndpointz> getEndpointz(@RequestParam String endpointzType) {
+    	User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	List<UserzEndpointz> userzEndpointz = userzEndpointzService.findByUsernameAndEndpointzType(user.getUsername(), endpointzType);
+    	return userzEndpointz;
     }
 
 }
