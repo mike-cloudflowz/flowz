@@ -23,7 +23,6 @@
 <body>
 <div class="container">    
     <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
-    <h2>My Flowz Stepz List</h2>
     <label>Select a Flow:</label> 
     <select id="currFlowz" name="currFlowz" class="selectpicker">
         <option class="form-control" value="">Select a Flow</option>
@@ -48,7 +47,7 @@
             <tr th:each="flowActionzParamz : ${flowzActionzParamz}">
                 <td th:text="${flowActionzParamz.initialTmstmp}">Actionz Timestamp</td>
                 <td th:text="${flowActionzParamz.actionz_name}">Actionz Name</td>
-                <td th:text="${flowActionzParamz.userz_endpointz_id}">Actionz Destination</td>
+                <td th:text="${flowActionzParamz.userz_endpointzLabel}">Actionz Destination</td>
                 <td th:text="${flowActionzParamz.param1}">Subject Text</td>
                 <td th:text="${flowActionzParamz.param2}">Body Text</td>
                 <td><a th:href="${'/flowzActionzParamz/' + flowActionzParamz.id}">View</a></td>
@@ -59,7 +58,7 @@
     </div>
     
     <div th:if="${#lists.isEmpty(flowzActionzParamz)}">
-        <h3>My FlowzStepz List</h3>
+        <h3>My Flowz Actionz List</h3>
         <table class="table table-striped">
             <tr>
                 <th>You have no Flowz Stepz</th>

@@ -15,7 +15,9 @@ public class FlowzStepz {
 	private Integer flowzId;	 
     
     private String actionz_name;
-    private Integer user_endpointz_id;
+    
+    private Integer userz_endpointz_id;
+    
     private String stepz_payload;
     private String stepz_tmstmp;
 	private Timestamp executed_tmstmp;
@@ -52,13 +54,13 @@ public class FlowzStepz {
 	public void setActionz_name(String actionz_name) {
 		this.actionz_name = actionz_name;
 	}
-	
-	public Integer getUser_endpointz_id() {
-		return user_endpointz_id;
+		
+	public Integer getUserz_endpointz_id() {
+		return userz_endpointz_id;
 	}
-	
-	public void setUser_endpointz_id(Integer user_endpointz_id) {
-		this.user_endpointz_id = user_endpointz_id;
+
+	public void setUserz_endpointz_id(Integer userz_endpointz_id) {
+		this.userz_endpointz_id = userz_endpointz_id;
 	}
 	
 	public String getStepz_payload() {

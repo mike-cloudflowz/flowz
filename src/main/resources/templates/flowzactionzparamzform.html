@@ -10,28 +10,13 @@
     
 		$(document).ready(function() {   
   			$("#dtBox").DateTimePicker();		   
-		});		
-
-		function sendAjaxRequest(){
-			
-			var endpointz_type = $("#actionz_name").val();
-			$.get( "/endpointz?endpointzType=" + endpointz_type, function( data ) {
-			$("#userz_endpointz_id").empty();
-			    data.forEach(function(item, i) {
-			    var option = "<option value = " + item + ">" + item +  "</option>";
-			    $("#userz_endpointz_id").append(option);
-			    });
-			});
-			
-		}
+		});				
 
 	    $(function() {
 
 	    	 $('#actionz_name').on('change', function(){
 	     	    var selected = $(this).find("option:selected").val();
-	     	    
-	     	   sendAjaxRequest();
-	     	    
+	     	         	    
 	     	    if (selected == 'text') {
 	     	      $('#param1Label').text('Text Message');	
 	      	  	  $('#param2').hide();

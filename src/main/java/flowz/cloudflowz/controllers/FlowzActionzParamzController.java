@@ -1,7 +1,5 @@
 package flowz.cloudflowz.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
@@ -11,10 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import flowz.cloudflowz.domain.FlowzActionzParamz;
-import flowz.cloudflowz.domain.UserzEndpointz;
 import flowz.cloudflowz.services.FlowzActionzParamzService;
 import flowz.cloudflowz.services.FlowzService;
 import flowz.cloudflowz.services.UsersService;
@@ -62,7 +59,7 @@ public class FlowzActionzParamzController {
     public String showFlowzParamz(@PathVariable Integer id, Model model){
     	FlowzActionzParamz flowzActionzParamz = flowzActionzParamzService.getFlowzActionzParamzById(id);
         model.addAttribute("flowzActionzParamz", flowzActionzParamz);
-        model.addAttribute("userEndpointz", userzEndpointzService.findById(flowzActionzParamz.getUserz_endpointz_id()));        
+        model.addAttribute("userzEndpointz", userzEndpointzService.findById(flowzActionzParamz.getUserz_endpointz_id()));        
         return "flowzactionzparamzshow";
     }
 
@@ -85,6 +82,8 @@ public class FlowzActionzParamzController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("user", usersService.findByUsername(user.getUsername()));
         model.addAttribute("userzEndpointz", userzEndpointzService.findByUsername(user.getUsername()));
+        //model.addAttribute("userzEmailzEndpointz", userzEndpointzService.findByUsernameAndEndpointzType(user.getUsername(), "email"));
+        //model.addAttribute("userzPhonezEndpointz", userzEndpointzService.findByUsernameAndEndpointzType(user.getUsername(), "phone"));
         return "flowzactionzparamzform";
     }
 
@@ -100,12 +99,4 @@ public class FlowzActionzParamzController {
         return "redirect:/flowzActionzParamz";
     }
     
-    @RequestMapping(value = "/getEndpointz")
-    @ResponseBody
-    public List<UserzEndpointz> getEndpointz(@RequestParam String endpointzType) {
-    	User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    	List<UserzEndpointz> userzEndpointz = userzEndpointzService.findByUsernameAndEndpointzType(user.getUsername(), endpointzType);
-    	return userzEndpointz;
-    }
-
 }
